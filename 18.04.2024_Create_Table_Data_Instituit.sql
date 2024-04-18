@@ -1,0 +1,58 @@
+--CREATE TABLE Кураторы (
+--    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+--    [Name] NVARCHAR(MAX) NOT NULL,
+--    [Surname] NVARCHAR(MAX) NOT NULL
+--);
+--CREATE TABLE Кафедры (
+--    [Id] INT IDENTITY(1,1) PRIMARY KEY,
+--    [Financing] MONEY NOT NULL DEFAULT 0,
+--    [Name] NVARCHAR(100) NOT NULL UNIQUE,
+--    [FacultyId] INT NOT NULL,
+--    FOREIGN KEY ([FacultyId]) REFERENCES Faculties([Id])
+--);
+--CREATE TABLE Faculties (
+--    Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+--    Financing MONEY NOT NULL DEFAULT 0,
+--    Name NVARCHAR(100) NOT NULL UNIQUE
+--);
+--CREATE TABLE Groups (
+--    Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+--    Name NVARCHAR(10) NOT NULL UNIQUE,
+--    Year INT NOT NULL CHECK (Year >= 1 AND Year <= 5),
+--    DepartmentId INT NOT NULL FOREIGN KEY REFERENCES Кафедры(Id)
+--);
+--CREATE TABLE GroupsCurators (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    CuratorId INT NOT NULL,
+--    GroupId INT NOT NULL,
+--    FOREIGN KEY (CuratorId) REFERENCES Кураторы(Id),
+--    FOREIGN KEY (GroupId) REFERENCES Groups(Id)
+--);
+
+--CREATE TABLE GroupsLectures (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    GroupId INT NOT NULL,
+--    LectureId INT NOT NULL,
+--    FOREIGN KEY (GroupId) REFERENCES Groups(Id),
+--    FOREIGN KEY (LectureId) REFERENCES Lectures(Id)
+--);
+--CREATE TABLE Lectures (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    LectureRoom NVARCHAR(MAX) NOT NULL,
+--    SubjectId INT NOT NULL,
+--    TeacherId INT NOT NULL,
+--    FOREIGN KEY (SubjectId) REFERENCES Subjects(Id),
+--    FOREIGN KEY (TeacherId) REFERENCES Teachers(Id)
+--);
+
+--CREATE TABLE Subjects (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    Name NVARCHAR(100) NOT NULL UNIQUE
+--);
+
+--CREATE TABLE Teachers (
+--    Id INT IDENTITY(1,1) PRIMARY KEY,
+--    Name NVARCHAR(MAX) NOT NULL,
+--    Salary MONEY NOT NULL CHECK (Salary > 0),
+--    Surname NVARCHAR(MAX) NOT NULL
+--);
